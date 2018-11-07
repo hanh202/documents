@@ -1,0 +1,28 @@
+window.Parsley.addValidator('checkDate',{
+            validate: (function() {
+                var registry = {};
+                return function(value,requirement,instance){
+
+                    var targetDate2=$(requirement);                
+                    var date1=new Date(value);
+                    var date2= new Date(targetDate2.val());
+
+                    var registed = registry[requirement];
+                    if (targetDate2.not('validate-lessThanTime-blur').length && !registed) {
+                        targetDate2.addClass('validate-lessThanTime-blur').on('change', function(){
+                            $(instance.element).parsley().validate();
+                        });
+                        registry[requirement] = true;
+                    }
+
+                    if(!(targetDate2.val() && value)){
+                        return true;
+                    }
+                    return date1 <= date2;
+
+                };
+            })(),
+            messages:{
+                en:'date sai'
+            }
+        });

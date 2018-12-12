@@ -1,5 +1,5 @@
 ﻿- import httpClientModule in app.module.ts
-- import Httpcliet, observable vao noi dung
+- import Httpclient, observable vao noi dung
 - khai bao private http:HttpClient in constructor
 - declare bien la link toi file .json
 (file .json can local -----fix in angular.json 
@@ -9,10 +9,12 @@
 ---------server
 - npm i json-server
 - npm i concurrently
-- sửa 3 câu in sky c.nhung gửi
-- interface IProduct -> service có function getProduct -> goi lại service để sd data
-  "start:server": "./node_modules/.bin/json-server --watch server/db.json",
+- sửa 4 câu này trong file package.json
+
+    "start:server": "./node_modules/.bin/json-server --watch server/db.json",
     "ng": "ng",
     "serve": "ng serve -o --port 4242",
     "start": "concurrently --kill-others \"npm run start:server\" \"npm run serve\"",
+    
+ - interface IProduct -> service có function getProduct -> goi lại service để sd data
     
